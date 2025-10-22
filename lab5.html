@@ -1,88 +1,145 @@
-
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Experiment 5: Exploring CSS Selectors</title>
-    
+    <title>Web Technologies - Minimalist Green</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300..800&display=swap" rel="stylesheet">
     <style>
-        /* 1. TYPE SELECTOR: Targets all elements of a specific type (e.g., all paragraphs) */
-        p {
-            color: gray;
-            font-style: italic;
-            border: 1px solid #ccc;
-            padding: 5px;
+        /* Apply Open Sans font family and a light, muted background */
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f0fdf4; /* Pale Green/Mint */
+            color: #1f2937; /* Dark Slate Gray text */
         }
-        
-        /* 2. CLASS SELECTOR: Targets elements with the attribute class="highlight" */
-        .highlight {
-            background-color: yellow;
-            color: black;
-            font-weight: bold;
+        /* Custom scrollbar matching the accent color */
+        body::-webkit-scrollbar {
+            width: 8px;
         }
-        
-        /* 3. ID SELECTOR: Targets the single, unique element with id="main-heading" */
-        #main-heading {
-            color: darkred;
-            text-align: right;
-            border-bottom: 2px solid darkred;
-            padding-bottom: 5px;
+        body::-webkit-scrollbar-thumb {
+            background-color: #10b981; /* Emerald-500 */
+            border-radius: 4px;
         }
-        .nav-links {
-            background-color: #4CAF50; 
-            color: white;
-            font-size: 0.9em;
-            font-weight: bold;
+
+        /* Subtle lift and professional shadow for cards */
+        .lab-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.08), 0 1px 2px 0 rgba(0, 0, 0, 0.04);
+        }
+        .lab-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(16, 185, 129, 0.1), 0 4px 6px -2px rgba(16, 185, 129, 0.05); /* Soft emerald glow */
+            border-left: 5px solid #10b981; /* Highlight bar */
         }
     </style>
 </head>
-<body>
+<body class="min-h-screen p-4 sm:p-8">
+    <div class="max-w-3xl mx-auto py-12">
 
-    <h1 id="main-heading">Experiment 5: CSS Selectors (ID, Class, Type)</h1>
-    <hr>
+        <header class="text-center mb-16 px-4">
+            <h1 class="text-5xl sm:text-6xl font-extrabold tracking-tight mb-2 text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 to-green-600">
+                Web Technologies Lab Index 🌿
+            </h1>
+            <p class="text-xl text-gray-500 font-light mt-4">
+                Computer Engineering - COMSATS University
+            </p>
+            <p class="text-lg text-emerald-600 font-semibold mt-1">
+                Ali Hamza | Student ID: 094
+            </p>
+        </header>
 
-    <h2>Student Information</h2>
-    <p>
-        <b>Name:</b> Ali Hamza<br>
-        <b>Registration ID:</b> FA22-BCE-094
-    </p>
+        <div class="space-y-4">
 
-    <hr>
+            <div class="lab-card flex items-center justify-between bg-white p-5 rounded-xl border border-gray-200">
+                <div class="flex items-center">
+                    <div class="text-3xl font-bold mr-6 text-emerald-500 w-10 text-center flex-shrink-0">
+                        01
+                    </div>
+                    <div class="text-left">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-0.5">Lab Task 1: HTML Basics</h3>
+                        <p class="text-gray-500 text-sm">Introduction to basic HTML structure and elements.</p>
+                    </div>
+                </div>
+                <a href="lab1.html" class="ml-4 flex-shrink-0 py-2 px-5 rounded-lg font-semibold text-white bg-emerald-500 hover:bg-emerald-600 transition-colors shadow-md">
+                    Explore
+                </a>
+            </div>
 
-    <h2>Lab Task 1: Demonstrate Type Selector</h2>
-    <p>
-        This paragraph is styled using the **Type Selector** (the `p` selector). Notice that every paragraph on this page has the same light gray border and italic text.
-    </p>
-    
-    <hr>
+            <div class="lab-card flex items-center justify-between bg-white p-5 rounded-xl border border-gray-200">
+                <div class="flex items-center">
+                    <div class="text-3xl font-bold mr-6 text-emerald-500 w-10 text-center flex-shrink-0">
+                        02
+                    </div>
+                    <div class="text-left">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-0.5">Lab Task 2: Forms & Tables</h3>
+                        <p class="text-gray-500 text-sm">Working with tables, forms, and semantic HTML.</p>
+                    </div>
+                </div>
+                <a href="lab2.html" class="ml-4 flex-shrink-0 py-2 px-5 rounded-lg font-semibold text-white bg-emerald-500 hover:bg-emerald-600 transition-colors shadow-md">
+                    Explore
+                </a>
+            </div>
 
-    <h2>Lab Task 2: Demonstrate Class Selector</h2>
-    <p class="highlight">
-        This paragraph is styled using the **Class Selector** (`.highlight`). It overrides some of the Type Selector styles and adds a yellow background and bold text. Multiple elements can use the same class.
-    </p>
-    
-    <p>
-        This is a normal paragraph to show the difference.
-    </p>
+            <div class="lab-card flex items-center justify-between bg-white p-5 rounded-xl border border-gray-200">
+                <div class="flex items-center">
+                    <div class="text-3xl font-bold mr-6 text-emerald-500 w-10 text-center flex-shrink-0">
+                        03
+                    </div>
+                    <div class="text-left">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-0.5">Lab Task 3: CSS Introduction</h3>
+                        <p class="text-gray-500 text-sm">Introduction to CSS styling and basic selectors.</p>
+                    </div>
+                </div>
+                <a href="lab3.html" class="ml-4 flex-shrink-0 py-2 px-5 rounded-lg font-semibold text-white bg-emerald-500 hover:bg-emerald-600 transition-colors shadow-md">
+                    Explore
+                </a>
+            </div>
 
-    <hr>
+            <div class="lab-card flex items-center justify-between bg-white p-5 rounded-xl border border-gray-200">
+                <div class="flex items-center">
+                    <div class="text-3xl font-bold mr-6 text-emerald-500 w-10 text-center flex-shrink-0">
+                        04
+                    </div>
+                    <div class="text-left">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-0.5">Lab Task 4: Flexbox & Responsiveness</h3>
+                        <p class="text-gray-500 text-sm">Implementing Flexbox and basic responsive design.</p>
+                    </div>
+                </div>
+                <a href="lab4.html" class="ml-4 flex-shrink-0 py-2 px-5 rounded-lg font-semibold text-white bg-emerald-500 hover:bg-emerald-600 transition-colors shadow-md">
+                    Explore
+                </a>
+            </div>
 
-    <h2>Lab Task 3: Demonstrate ID Selector</h2>
-    <p>
-        The main title above is styled using the **ID Selector** (`#main-heading`). This selector is meant for elements that are unique on the page.
-    </p>
+            <div class="lab-card flex items-center justify-between bg-white p-5 rounded-xl border border-gray-200">
+                <div class="flex items-center">
+                    <div class="text-3xl font-bold mr-6 text-emerald-500 w-10 text-center flex-shrink-0">
+                        05
+                    </div>
+                    <div class="text-left">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-0.5">Lab Task 5: CSS Grid</h3>
+                        <p class="text-gray-500 text-sm">Working with CSS Grid layouts and complex positioning.</p>
+                    </div>
+                </div>
+                <a href="lab5.html" class="ml-4 flex-shrink-0 py-2 px-5 rounded-lg font-semibold text-white bg-emerald-500 hover:bg-emerald-600 transition-colors shadow-md">
+                    Explore
+                </a>
+            </div>
 
-    <hr>
-
-    <h2>Report Requirements and Instructions</h2>
-    <p>
-        Experiment 5 requires the successful demonstration of the three core CSS selector types:
-    </p>
-    <ol>
-        <li>**Type Selector (Element Selector):** Styling all instances of a tag (e.g., `p`, `h1`).</li>
-        <li>**Class Selector:** Styling elements using the `class="[name]"` attribute.</li>
-        <li>**ID Selector:** Styling the unique element using the `id="[name]"` attribute.</li>
-    </ol>
-    <a class="nav-links" href="index.html">Go Back</a>
+            <div class="lab-card flex items-center justify-between bg-white p-5 rounded-xl border border-gray-200">
+                <div class="flex items-center">
+                    <div class="text-3xl font-bold mr-6 text-emerald-500 w-10 text-center flex-shrink-0">
+                        06
+                    </div>
+                    <div class="text-left">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-0.5">Lab 6: JavaScript DOM</h3>
+                        <p class="text-gray-500 text-sm">Basic JavaScript functions and DOM manipulation.</p>
+                    </div>
+                </div>
+                <a href="lab6.html" class="ml-4 flex-shrink-0 py-2 px-5 rounded-lg font-semibold text-white bg-emerald-500 hover:bg-emerald-600 transition-colors shadow-md">
+                    Explore
+                </a>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
