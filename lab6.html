@@ -1,0 +1,122 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Experiment 6: Web Responsiveness</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+       
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f8ff; /* Light background */
+            color: #333;
+        }
+
+        .container {
+            /* This is the main content box */
+            border: 2px solid #4682b4; /* Steel blue border */
+            padding: 15px;
+            margin: 10px auto;
+            max-width: 800px;
+            background-color: white;
+        }
+        
+        .box {
+            /* Desktop style: Display side-by-side */
+            float: left;
+            width: 48%; /* Almost half the container width */
+            padding: 10px;
+            margin: 1%;
+            background-color: #e6f7ff; /* Very light blue background */
+            text-align: center;
+        }
+        
+      
+        @media only screen and (max-width: 600px) {
+            
+            body {
+                /* Change background for mobile view */
+                background-color: #afeeee; /* Aqua background for mobile */
+            }
+            
+            .box {
+                /* Mobile style: Stack vertically */
+                width: 98%; /* Full width */
+                float: none; /* Remove side-by-side alignment */
+                margin: 5px 0;
+                background-color: #4682b4; /* Darker blue background */
+                color: white; /* White text for contrast */
+            }
+            
+        } /* End of Media Query */
+        .nav-links {
+            display: flex;
+            justify-content: flex-start;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #f0f0f0; 
+            border-bottom: 2px solid #ddd;
+        }
+        .nav-links a {
+            padding: 8px 12px;
+            background-color: #4CAF50; 
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 0.9em;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        .nav-links a:hover {
+            background-color: #388e3c; 
+        }
+    </style>
+</head>
+<body>
+    <div class="nav-links">
+        <!-- Back link -->
+        <a href="index.html">&larr; Back to Lab Index</a>
+    </div>
+    
+    <h1 style="text-align: center;">Experiment 6: Web Responsiveness</h1>
+    <hr>
+
+    <h2>Objective: Demonstrate Adaptive Layout</h2>
+    <p>
+        Resize your browser window (or view on a mobile device) to see the layout change. The **Media Query** targets screens that are 600 pixels wide or less.
+    </p>
+
+    <div class="container">
+        <div class="box">
+            <h3>Desktop View</h3>
+            <p>I am wide. I use a fixed percentage width and float next to my neighbor.</p>
+        </div>
+        <div class="box">
+            <h3>Mobile View</h3>
+            <p>When the screen shrinks, I stack below my neighbor and take up full width.</p>
+        </div>
+        <hr style="clear: both; visibility: hidden;"> 
+    </div>
+
+    <hr>
+
+    <h2>Report Requirements and Instructions</h2>
+    <p>
+        Experiment 6 requires the demonstration of screen size adaptability:
+    </p>
+    <ol>
+        <li>The **viewport** meta tag must be included in the head section.</li>
+        <li>**Internal CSS** is used.</li>
+        <li>A **Media Query** (using `@media only screen and (max-width: Xpx)`) must be defined.</li>
+        <li>The layout and/or styling must change when viewed on a mobile-sized screen.</li>
+        <li>Include screenshots of **Desktop View** and **Mobile View** in your report.</li>
+    </ol>
+    
+</body>
+</html>
