@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lab 10 – Student Record Management</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #e0e7ff, #f0f9ff);
+            padding: 30px;
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        .container {
+            background: white;
+            max-width: 700px;
+            margin: auto;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+
+        input {
+            padding: 10px;
+            margin: 6px;
+            width: 180px;
+        }
+
+        button {
+            padding: 10px 15px;
+            margin: 6px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            background: #1f2937;
+            color: white;
+        }
+
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        th {
+            background: #1f2937;
+            color: white;
+        }
+
+        .info {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>Lab 10 – Student Record Management System</h1>
+
+<div class="container">
+
+    <input type="text" id="name" placeholder="Student Name">
+    <input type="number" id="marks" placeholder="Marks">
+    <br>
+
+    <button onclick="addStudent()">Add Student</button>
+    <button onclick="sortStudents()">Sort by Marks</button>
+    <button onclick="searchStudent()">Search Student</button>
+
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Marks</th>
+            </tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+    </table>
+
+    <div class="info" id="stats"></div>
+</div>
+
+<script>
+    function Student(name, marks) {
+        this.name = name;
+        this.marks = marks;
+    }
+
+    let students = [];
+
+    function addStudent() {
+        const name = document.getElementById("name").value.trim();
+        const marks = Number(document.getElementById("marks").value);
+
+        if (name === "" || isNaN(marks)) {
+            alert("Please enter valid student data");
+            return;
+        }
+
+        students.push(new Student(name, marks));
+        displayStudents();
+        calculateStats();
+
+        document.getElementById("name").value = "";
+        document.getElementById("marks").value = "";
+    }
+
+    function displayStudents() {
+        const body = document.getElementById("tableBody");
+        body.innerHTML = "";
+
+        students.forEach((s, index) => {
+            body.innerHTML += `
+                <tr>
+                    <td>${index + 1}</td>
+                    <td>${s.name}</td>
+                    <td>${s.marks}</td>
+                </tr>`;
+        });
+    }
+
+    function sortStudents() {
+        students.sort((a, b) => b.marks - a.marks);
+        displayStudents();
+    }
+
+    function searchStudent() {
+        const key = prompt("Enter student name to search:");
+
+        const found = students.find(s =>
+            s.name.toLowerCase() === key.toLowerCase()
+        );
+
+        if (found) {
+            alert(`Student Found\nName: ${found.name}\nMarks: ${found.marks}`);
+        } else {
+            alert("Student not found");
+        }
+    }
+
+    function calculateStats() {
+        if (students.length === 0) return;
+
+        let total = students.reduce((sum, s) => sum + s.marks, 0);
+        let avg = (total / students.length).toFixed(2);
+
+        document.getElementById("stats").innerText =
+            `Total Students: ${students.length} | Average Marks: ${avg}`;
+    }
+</script>
+
+</body>
+</html>
