@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 9 – Modular Control Panel</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #e0e7ff, #f0f9ff);
+            padding: 40px;
+            text-align: center;
+        }
+
+        button {
+            padding: 11px 18px;
+            margin: 6px;
+            border: none;
+            border-radius: 7px;
+            cursor: pointer;
+            background: #111827;
+            color: white;
+        }
+
+        .shape {
+            width: 120px;
+            height: 120px;
+            margin: 15px auto;
+            transition: 0.4s;
+        }
+
+        #square { background: #fb7185; border-radius: 10px; }
+        #circle { background: #38bdf8; border-radius: 50%; }
+
+        #status {
+            background: white;
+            padding: 12px;
+            display: inline-block;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+<h1>Lab 9 – Modular Interactive Page</h1>
+
+<button onclick="run('color')">Change Color</button>
+<button onclick="run('move')">Move Shape</button>
+<button onclick="run('resize')">Resize Shape</button>
+<button onclick="run('toggle')">Toggle Display</button>
+
+<div id="square" class="shape"></div>
+<div id="circle" class="shape"></div>
+
+<div id="status">Status: Ready</div>
+
+<script>
+    function update(msg) {
+        status.innerText = "Status: " + msg;
+    }
+
+    function changeColor() {
+        square.style.background =
+            "#" + Math.floor(Math.random()*16777215).toString(16);
+        update("Color changed");
+    }
+
+    function moveShape() {
+        circle.style.transform = "translateX(80px)";
+        update("Circle moved");
+    }
+
+    function resizeShape() {
+        const size = Math.floor(Math.random()*140)+80;
+        square.style.width = size+"px";
+        square.style.height = size+"px";
+        update("Square resized");
+    }
+
+    function toggleDisplay() {
+        const state = square.style.display === "none";
+        square.style.display = state ? "block" : "none";
+        circle.style.display = state ? "block" : "none";
+        update("Visibility toggled");
+    }
+
+    function run(type) {
+        switch(type) {
+            case "color": changeColor(); break;
+            case "move": moveShape(); break;
+            case "resize": resizeShape(); break;
+            case "toggle": toggleDisplay(); break;
+        }
+    }
+</script>
+</body>
+</html>
